@@ -20,7 +20,7 @@ const App: React.FC = () => {
                <Route path="/friends" element={<Friends />} />
                <Route path="/myprofile" element={<MyProfile />} />
             </Routes>
-            T
+            
          </div>
       </div>
    );
