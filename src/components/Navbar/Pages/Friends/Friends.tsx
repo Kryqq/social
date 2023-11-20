@@ -1,25 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './Friends.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchFriends } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
+import Friend from './Friend/Friend.tsx';
 
-const Friends = () => {
-   const dispatch = useDispatch();
-
-   const friends = useSelector((state: any) => state.friends.friends.results);
-
-   useEffect(() => {
-      //@ts-ignore
-      dispatch(fetchFriends());
-   }, [fetchFriends]);
-
+const Friends: React.FC = () => {
    return (
       <div className={styles.friends__wrapper}>
-         {friends.map((obj: any) => (
-            <ul>
-               <img src={obj.image}></img>
-            </ul>
-         ))}
+         <Friend />
       </div>
    );
 };
