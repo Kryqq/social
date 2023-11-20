@@ -14,13 +14,16 @@ const Friend = () => {
       dispatch(fetchFriends());
    }, [fetchFriends]);
 
+   debugger;
    return (
       <div>
          <div className={styles.friend__wrapper}>
-            <img src={friends.image}></img>
-            <div>{friends.name}</div>
+            {friends.map((obj: any) => (
+               <ul>
+                  <img src={obj.image}></img>
+               </ul>
+            ))}
          </div>
-         
       </div>
    );
 };
