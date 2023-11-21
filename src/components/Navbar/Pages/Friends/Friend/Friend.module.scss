@@ -1,5 +1,37 @@
 .friend__wrapper {
+   padding-top: 20px;
+   margin-left: 40px;
    display: flex;
 
-   justify-content: center;
+   justify-content: flex-start;
+}
+
+.image__wrapper {
+   img {
+      width: 200px;
+      padding-bottom: 10px;
+      border-radius: 40px;
+   }
+}
+
+.button__wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   padding-bottom: 20px;
+   button {
+      width: 50px;
+      height: 20px;
+      cursor: pointer;
+   }
+}
+
+.button__addTo_friend {
+}
+
+.button__send_message {
+}
+
+.span__name {
+   margin-left: 50px;
 }

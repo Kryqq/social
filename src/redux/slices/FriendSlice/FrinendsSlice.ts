@@ -8,7 +8,7 @@ export const fetchFriends = createAsyncThunk<resultsFriends[], undefined>('frien
    return data;
 });
 
-interface iFriendList {
+export interface iFriendList {
    friends: resultsFriends[];
    loading: boolean;
    error: null | string;
@@ -16,6 +16,7 @@ interface iFriendList {
 
 const initialState = {
    friends: {},
+
    loading: false,
    error: null,
 } as iFriendList;

@@ -39,6 +39,6 @@ export type resultsFriends = {
 };
 
 export interface FriendsSliceState {
-   info: infoFriends;
+     info: infoFriends;
    results: resultsFriends;
 }
