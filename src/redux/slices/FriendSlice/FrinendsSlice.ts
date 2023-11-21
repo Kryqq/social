@@ -26,8 +26,11 @@ const friendsSlice = createSlice({
    name: 'friends',
    initialState,
    reducers: {
-      increment(state) {},
-      decrement(state) {},
+      deleteFriend(state, action) {
+		state.friends = state.friends.filter((friend)=>friend.name === action.payload);
+		
+	 },
+    
    },
    extraReducers: (builder) => {
       builder
