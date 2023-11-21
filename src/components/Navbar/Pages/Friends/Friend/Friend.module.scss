@@ -1,8 +1,12 @@
+.friend__container {
+   margin: 10px 10px;
+}
+
 .friend__wrapper {
+   border-bottom: solid 1px white;
    padding-top: 20px;
    margin-left: 40px;
    display: flex;
-
    justify-content: flex-start;
 }
 
@@ -17,21 +21,51 @@
 .button__wrapper {
    display: flex;
    align-items: center;
-   justify-content: space-around;
-   padding-bottom: 20px;
+   justify-content: space-evenly;
+   padding-bottom: 5px;
+
    button {
-      width: 50px;
-      height: 20px;
+      border-radius: 20px;
+      width: 90px;
+      height: 50px;
       cursor: pointer;
+      background-color: rgba(120, 201, 221, 0.397);
    }
 }
 
 .button__addTo_friend {
+   &:hover {
+      transition: all 0.05s ease-in;
+      background-color: rgba(120, 201, 221, 0.486);
+   }
 }
 
 .button__send_message {
+   &:hover {
+      transition: all 0.05s ease-in;
+      background-color: rgba(120, 201, 221, 0.486);
+   }
 }
 
-.span__name {
+.span__wrapper {
+   font-size: 20px;
    margin-left: 50px;
+   display: flex;
+   flex-direction: column;
+   .span__name {
+      font-weight: 500;
+      font-size: 25px;
+      margin-bottom: 10px;
+   }
+   .span__gender {
+      margin-bottom: 10px;
+      font-size: 20px;
+   }
+   .span__location {
+      font-size: 20px;
+      margin-bottom: 10px;
+   }
+   .span__species {
+      font-size: 20px;
+   }
 }

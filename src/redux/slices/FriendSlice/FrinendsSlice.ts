@@ -1,3 +1,4 @@
+
 import { resultsFriends, FriendsSliceState } from './types';
 import { createAsyncThunk, createSlice,} from '@reduxjs/toolkit';
 
