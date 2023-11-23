@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from './Friend.module.scss';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../../../../redux/store/store.tsx';
+import { deleteFriendSlice } from '../../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 
 export const Friend: React.FC = ({ id, name, gender, image, location, species }) => {
-	const dispatch = useDispatch
-const deleteFriend = () => {
-	dispatch(deleteFriend(name))
-}
-
-
+   const dispatch = useAppDispatch();
+   const deleteFriend = () => {
+      dispatch(deleteFriendSlice(id));
+   };
 
    return (
       <div className={styles.friend__container}>
@@ -16,7 +15,9 @@ const deleteFriend = () => {
             <div className={styles.image__wrapper}>
                <img src={image}></img>
                <div className={styles.button__wrapper}>
-                  <button onClick={deleteFriend} className={styles.button__addTo_friend}>Удалить из друзей</button>
+                  <button onClick={deleteFriend} className={styles.button__addTo_friend}>
+                     Удалить из друзей
+                  </button>
                   <button className={styles.button__send_message}>написать сообщение</button>
                </div>
             </div>
