@@ -1,8 +1,8 @@
 import { useDebugValue } from 'react';
-import { resultsFriends } from './types';
+import { resultsFriends, FriendsSliceState } from './types';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export const fetchFriends = createAsyncThunk<resultsFriends[], undefined>('friends/fetchFriends', async function () {
+export const fetchFriends = createAsyncThunk< FriendsSliceState, undefined>('friends/fetchFriends', async function () {
    const response = await fetch(`https://rickandmortyapi.com/api/character`);
    const data = await response.json();
 
@@ -16,7 +16,7 @@ export interface iFriendList {
 }
 
 const initialState = {
-   friends: {},
+   friends: [],
 
    loading: false,
    error: null,
@@ -27,11 +27,12 @@ const friendsSlice = createSlice({
    name: 'friends',
    initialState,
    reducers: {
-      deleteFriendSlice(state, action: PayloadAction<string>) {
-         debugger;
+      deleteFriendSlice(state, action: PayloadAction<number>) {
+     
        
-         state.friends = state.friends.filter((friend) => friend.id === action.payload);
-         debugger;
+         state.friends = state.friends.filter((friend) => friend.id !== action.payload);
+	    
+      
       },
    },
    extraReducers: (builder) => {
@@ -41,7 +42,9 @@ const friendsSlice = createSlice({
             state.error = null;
          })
          .addCase(fetchFriends.fulfilled, (state, action) => {
-            state.friends = action.payload;
+	
+            state.friends = action.payload.results;
+		
             state.loading = false;
             state.error = null;
          })

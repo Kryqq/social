@@ -52,10 +52,15 @@
    margin-left: 50px;
    display: flex;
    flex-direction: column;
+
    .span__name {
+      a {
+         color: white;
+      }
       font-weight: 500;
       font-size: 25px;
       margin-bottom: 10px;
+      
    }
    .span__gender {
       margin-bottom: 10px;

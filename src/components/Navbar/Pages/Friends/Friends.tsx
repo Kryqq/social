@@ -2,14 +2,17 @@ import React from 'react';
 import styles from './Friends.module.scss';
 
 import { Friend } from './Friend/Friend.tsx';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchFriends } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
-import { FriendsSliceState } from '../../../../redux/slices/FriendSlice/types.ts';
+import { useSelector} from 'react-redux';
+import { fetchFriends, iFriendList } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
+
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
 
 const Friends: React.FC = () => {
    const dispatch = useAppDispatch();
-   const friends = useSelector((state: FriendsSliceState) => state.friends.friends.results);
+  
+   const friends = useSelector((state: {govnoJopa:iFriendList}) =>{
+
+	return state.govnoJopa.friends} );
 
    React.useEffect(() => {
       dispatch(fetchFriends());

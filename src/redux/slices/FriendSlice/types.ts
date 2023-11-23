@@ -23,7 +23,7 @@ export type episodeFriends = {
    episode: string[];
 };
 
-export type resultsFriends = {
+export type resultsFriends ={
    id: number;
    name: string;
    status: string;
@@ -36,9 +36,9 @@ export type resultsFriends = {
    episode: episodeFriends;
    url: string;
    created: string;
-};
+}[];
 
 export interface FriendsSliceState {
-     info: infoFriends;
+   info: infoFriends;
    results: resultsFriends;
 }
