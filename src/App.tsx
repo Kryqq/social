@@ -1,5 +1,5 @@
 import './App.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/Header/Header.tsx';
 import Navbar from './components/Navbar/Navbar.tsx';
 import { Routes, Route } from 'react-router-dom';
@@ -12,20 +12,28 @@ import { Context } from './Context.tsx';
 
 const App: React.FC = () => {
    const [activePopup, setActivePopup] = React.useState(false);
+
    const popUpLoginMenu = () => {
       setActivePopup(!activePopup);
+      console.log('12');
    };
+
+   const scrollWidnowToggle = () => {
+      window.addEventListener('scroll', () => {
+         window.scrollTo({ top: 0 });
+      });
+   };
+
    return (
-      <Context.Provider value={{ popUpLoginMenu, activePopup, setActivePopup }}>
+      <Context.Provider value={{ popUpLoginMenu }}>
          <div className="app-wrapper">
             <Header />
             <Navbar />
-            <div className="app-container__popup">
-               <div className="app-wrapper__popup ">
+            <div className="popup__wrapper">
+               <div className={activePopup ? 'app-container__popup__active' : 'app-container__popup'}>
                   <Popup />
                </div>
             </div>
-
             <div className="app-wrapper-content">
                <Routes>
                   <Route path="/news" element={<News />} />

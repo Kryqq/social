@@ -1,12 +1,12 @@
-
 .popup__wrapper {
-   width: 1000px;
-   height: 700px;
-   background-color: white;
+   height: 600px;
+   width: 700px;
+   background-color: rgba($color: #c2c2c2, $alpha: 0.8);
    border-radius: 40px;
    display: flex;
    justify-content: center;
    align-items: center;
+   pointer-events: all;
 }
 .popup__login {
    display: flex;

@@ -11,13 +11,28 @@
    grid-template-areas:
       'h h'
       'n c';
-   .app-container__popup {
-      width: 1200px;
-      display: flex;
-      justify-content: center;
-      top: 200px;
-      position: absolute;
-	 overflow: hidden;
+   .popup__wrapper {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      pointer-events: none;
+
+      .app-container__popup {
+         opacity: 0;
+      }
+      .app-container__popup__active {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 100%;
+         height: 100%;
+         opacity: 1;
+         background-color: rgba($color: #968b8b, $alpha: 0.8);
+	   
+      }
    }
 }
 
