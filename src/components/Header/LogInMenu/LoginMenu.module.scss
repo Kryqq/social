@@ -1,0 +1,38 @@
+.loginMenu__container {
+   display: flex;
+   font-size: 20px;
+}
+
+.loginMenu__wrapper {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.loginMenu__userLogin {
+   margin-right: 30px;
+   .loginMenu__userLoginBtn {
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 40px;
+      background-color: inherit;
+      cursor: pointer;
+      border-radius: 20px;
+      &:hover {
+         transition: all 0.05s ease-in;
+         background-color: #fcd1d8;
+      }
+   }
+}
+
+.loginMenu__svg {
+   display: flex;
+   justify-content: center;
+   width: 40px;
+   height: 40px;
+   margin-right: 10px;
+   align-items: center;
+   border-radius: 100px;
+   border: solid 1px;
+}

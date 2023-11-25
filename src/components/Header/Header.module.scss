@@ -3,11 +3,14 @@
 }
 
 .header__wrapper {
+	
    height: 100%;
    display: flex;
    font-size: 50px;
    font-weight: 500;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
-   background-color: pink;
+   background-color: #ffc0cb;
+ 
+   
 }
