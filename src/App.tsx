@@ -9,19 +9,13 @@ import MyProfile from './components/Navbar/Pages/MyProfile/MyProfile.tsx';
 import FriendProfile from './components/Navbar/Pages/Friends/FriendProfile/FriendProfile.tsx';
 import Popup from './components/Popup/Popup.tsx';
 import { Context } from './Context.tsx';
+import { current } from '@reduxjs/toolkit';
 
 const App: React.FC = () => {
    const [activePopup, setActivePopup] = React.useState(false);
 
    const popUpLoginMenu = () => {
       setActivePopup(!activePopup);
-      console.log('12');
-   };
-
-   const scrollWidnowToggle = () => {
-      window.addEventListener('scroll', () => {
-         window.scrollTo({ top: 0 });
-      });
    };
 
    return (
