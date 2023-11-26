@@ -1,2 +1,8 @@
-import React from 'react';
-export const Context = React.createContext({});
+import { type } from 'os';
+import { createContext } from 'react';
+
+interface ContextProps {
+   popUpLoginMenu: () => void;
+}
+
+export const Context = createContext<ContextProps | undefined>(undefined);

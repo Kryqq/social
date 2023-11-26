@@ -1,5 +1,5 @@
 import './App.scss';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './components/Header/Header.tsx';
 import Navbar from './components/Navbar/Navbar.tsx';
 import { Routes, Route } from 'react-router-dom';
@@ -9,15 +9,14 @@ import MyProfile from './components/Navbar/Pages/MyProfile/MyProfile.tsx';
 import FriendProfile from './components/Navbar/Pages/Friends/FriendProfile/FriendProfile.tsx';
 import Popup from './components/Popup/Popup.tsx';
 import { Context } from './Context.tsx';
-import { current } from '@reduxjs/toolkit';
 
 const App: React.FC = () => {
-   const [activePopup, setActivePopup] = React.useState(false);
+   const [activePopup, setActivePopup] = React.useState<boolean>(false);
 
-   const popUpLoginMenu = () => {
+   const popUpLoginMenu = () =>  {
       setActivePopup(!activePopup);
    };
-
+  
    return (
       <Context.Provider value={{ popUpLoginMenu }}>
          <div className="app-wrapper">

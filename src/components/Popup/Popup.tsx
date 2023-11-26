@@ -4,8 +4,6 @@ import { Context } from '../../Context.tsx';
 const Popup = () => {
    const { popUpLoginMenu } = useContext(Context);
 
-
-
    return (
       <div className={styles.popup__container}>
          <div className={styles.popup__wrapper}>

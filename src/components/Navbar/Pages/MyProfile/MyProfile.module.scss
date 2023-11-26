@@ -1,4 +1,21 @@
-.myProfile__wrapper {
+.myProfile__container {
    display: flex;
    flex-direction: column;
+   width: 1000px;
+}
+
+.myProfile__upperContent {
+   display: flex;
+
+   justify-content: space-around;
+}
+
+.profImg {
+   width: 40%;
+}
+
+.profInfo {
+   width: 60%;
+   display: flex;
+   justify-content: space-between;
 }
