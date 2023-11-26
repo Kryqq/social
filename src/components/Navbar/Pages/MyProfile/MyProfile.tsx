@@ -16,7 +16,13 @@ const MyProfile = () => {
 
          <div className={styles.myProfile__bottomContent}>
             <div className={styles.myProfile__functions}></div>
-            <div>posts</div>
+            <div className={styles.posts__wrapper}>
+               <div className={styles.posts__area}>
+                  <textarea className={styles.postArea}></textarea>
+                  <button className={styles.postBtn}></button>
+               </div>
+               <div className={styles.posts__added}>posts</div>
+            </div>
          </div>
       </div>
    );

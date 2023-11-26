@@ -19,3 +19,33 @@
    display: flex;
    justify-content: space-between;
 }
+
+.myProfile__bottomContent {
+   display: flex;
+   flex-direction: column;
+}
+
+.myProfile__functions {
+}
+
+.posts__wrapper {
+   display: flex;
+   flex-direction: column;
+}
+
+.posts__area {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.postArea {
+   width: 300px;
+   height: 300px;
+}
+
+.postBtn {
+   width: 30px;
+   height: 30px;
+}
+.posts__added {
+}
