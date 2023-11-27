@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import govnoJopa from '../slices/FriendSlice/FrinendsSlice.ts';
 import { useDispatch } from 'react-redux';
-import profileSlice from '../slices/MyProfileSlice/MyProfileSlice.ts';
+import myProfileSlice from '../slices/MyProfileSlice/MyProfileSlice.ts';
 export const store = configureStore({
    reducer: {
 	govnoJopa,
-	profileSlice,
+	myProfileSlice,
 
    },
 });

@@ -11,14 +11,15 @@ const MyProfile: React.FC = () => {
    const dispatch = useAppDispatch();
    const statePosts = useSelector((state: { myProfileSlice: typeof myProfileState }) => state.myProfileSlice);
 
-console.log('Post:',statePosts)
+   console.log('Post:', statePosts.posts);
 
    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setPost(e.target.value);
       console.log(post);
    };
    const addPost = () => {
-      //  textAreaRef.current?.value
+     //  textAreaRef.current?.value
+      dispatch();
    };
    return (
       <div className={styles.myProfile__container}>
@@ -44,7 +45,7 @@ console.log('Post:',statePosts)
                   </button>
                </div>
                <div className={styles.posts__added}>
-				{}
+                  {}
                   <Posts />
                </div>
             </div>
