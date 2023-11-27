@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './MyProfile.module.scss';
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
 import { useSelector } from 'react-redux';
-import myProfileState from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
+import myProfileState from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.tsx';
+import { Posts } from './Posts/Posts.tsx';
 
-const MyProfile = () => {
+const MyProfile: React.FC = () => {
    const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
    const [post, setPost] = React.useState('');
    const dispatch = useAppDispatch();
@@ -40,7 +41,9 @@ const MyProfile = () => {
                      add post
                   </button>
                </div>
-               <div className={styles.posts__added}>posts</div>
+               <div className={styles.posts__added}>
+                  <Posts />
+               </div>
             </div>
          </div>
       </div>

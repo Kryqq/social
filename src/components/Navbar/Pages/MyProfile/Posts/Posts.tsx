@@ -1,12 +1,11 @@
-import React from 'react'
-import Post from './Post/Post'
+import React from 'react';
+import Post from './Post/Post.tsx';
+import { useSelector } from 'react-redux';
 
-const Posts = () => {
-  return (
-    <div>
-	 <Post/>
-    </div>
-  )
-}
-
-export default Posts
+export const Posts:React.FC  = () => {
+   return (
+      <div className='Posts'>
+         <Post />
+      </div>
+   );
+};
