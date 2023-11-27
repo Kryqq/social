@@ -11,6 +11,8 @@ const MyProfile: React.FC = () => {
    const dispatch = useAppDispatch();
    const statePosts = useSelector((state: { myProfileSlice: typeof myProfileState }) => state.myProfileSlice);
 
+console.log('Post:',statePosts)
+
    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setPost(e.target.value);
       console.log(post);
@@ -42,6 +44,7 @@ const MyProfile: React.FC = () => {
                   </button>
                </div>
                <div className={styles.posts__added}>
+				{}
                   <Posts />
                </div>
             </div>
