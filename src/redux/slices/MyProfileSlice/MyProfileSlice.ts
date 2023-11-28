@@ -16,15 +16,17 @@ const initialState = {
    isOnline: true,
 } as myProfileState;
 
-const myProfile = createSlice({
+const myProfileSlice = createSlice({
    name: 'MyProfile',
    initialState,
-   reducers: {
+     reducers: {
       addPost(state, action: PayloadAction<string>) {
+		
          state.posts.push(action.payload);
+	    
       },
    },
 });
 
-export const { addPost } = myProfile.actions;
-export default myProfile.reducer;
+export const { addPost } = myProfileSlice.actions;
+export default myProfileSlice.reducer;

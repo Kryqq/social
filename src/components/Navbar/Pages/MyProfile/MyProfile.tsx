@@ -1,25 +1,29 @@
 import React from 'react';
 import styles from './MyProfile.module.scss';
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
-import { useSelector } from 'react-redux';
-import myProfileState from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.tsx';
+
+
 import { Posts } from './Posts/Posts.tsx';
+import { addPost } from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
 
 const MyProfile: React.FC = () => {
    const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
    const [post, setPost] = React.useState('');
    const dispatch = useAppDispatch();
-   const statePosts = useSelector((state: { myProfileSlice: typeof myProfileState }) => state.myProfileSlice);
+  
 
-   console.log('Post:', statePosts.posts);
+
 
    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setPost(e.target.value);
-      console.log(post);
+
    };
-   const addPost = () => {
-     //  textAreaRef.current?.value
-      dispatch();
+
+
+
+   const dispatchAddPost = () => {
+      //  textAreaRef.current?.value
+      dispatch(addPost(post));
    };
    return (
       <div className={styles.myProfile__container}>
@@ -40,13 +44,13 @@ const MyProfile: React.FC = () => {
                   <textarea onChange={onChange} ref={textAreaRef} value={post} className={styles.postArea}>
                      {post}
                   </textarea>
-                  <button onClick={addPost} className={styles.postBtn}>
+                  <button onClick={dispatchAddPost} className={styles.postBtn}>
                      add post
                   </button>
                </div>
                <div className={styles.posts__added}>
-                  {}
-                  <Posts />
+                 
+                  {<Posts/>}
                </div>
             </div>
          </div>

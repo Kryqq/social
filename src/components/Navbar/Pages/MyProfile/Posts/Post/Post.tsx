@@ -1,11 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-const Post:React.FC = () => {
-  return (
-    <div>
-	 adzxc
-    </div>
-  )
-}
+const Post = ({ post }) => {
+   debugger;
+   return <div>{post}</div>;
+};
 
-export default Post
+export default Post;
