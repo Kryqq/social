@@ -25,6 +25,8 @@ const MyProfile: React.FC = () => {
       //  textAreaRef.current?.value
       dispatch(addPost(post));
    };
+
+   
    return (
       <div className={styles.myProfile__container}>
          <div className={styles.myProfile__upperContent}>
