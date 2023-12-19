@@ -1,37 +1,44 @@
 import React from 'react';
 import styles from './MyProfile.module.scss';
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
-
-
+import { v4 as uuidv4 } from 'uuid';
 import { Posts } from './Posts/Posts.tsx';
 import { addPost } from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
+import { removePost } from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
 
 const MyProfile: React.FC = () => {
    const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
-   const [post, setPost] = React.useState('');
+
+   const [postConstructor, setPostConstructor] = React.useState<string>('');
    const dispatch = useAppDispatch();
-  
-
-
 
    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setPost(e.target.value);
-
+      const postContent = e.target.value;
+      setPostConstructor(postContent);
    };
-
-
+   const postId = uuidv4();
 
    const dispatchAddPost = () => {
-      //  textAreaRef.current?.value
-      dispatch(addPost(post));
+      if (!postConstructor) return;
+      const message = postConstructor;
+      const newPost = {
+         postId: postId,
+         message: message,
+      };
+
+      dispatch(addPost(newPost));
+      setPostConstructor('');
+   };
+   const dispatchRemovePost= (postId:string) => {
+      dispatch(removePost(postId));
+	     
    };
 
-   
    return (
       <div className={styles.myProfile__container}>
          <div className={styles.myProfile__upperContent}>
             <div className={styles.profImg}>
-               <img src="https://rickandmortyapi.com/api/character/avatar/558.jpeg"></img>
+               <img src="https://rickandmortyapi.com/api/character/avatar/558.jpeg" alt="avatart"></img>
             </div>
             <div className={styles.profInfo}>
                <span>Elon Tusk</span>
@@ -43,16 +50,18 @@ const MyProfile: React.FC = () => {
             <div className={styles.myProfile__functions}></div>
             <div className={styles.posts__wrapper}>
                <div className={styles.posts__area}>
-                  <textarea onChange={onChange} ref={textAreaRef} value={post} className={styles.postArea}>
-                     {post}
-                  </textarea>
+                  <textarea
+                     onChange={onChange}
+                     ref={textAreaRef}
+                     value={postConstructor}
+                     className={styles.postArea}
+                  ></textarea>
                   <button onClick={dispatchAddPost} className={styles.postBtn}>
                      add post
                   </button>
                </div>
                <div className={styles.posts__added}>
-                 
-                  {<Posts/>}
+                  {<Posts message={postConstructor} postId={postId} dispatchRemovePost={dispatchRemovePost} />}
                </div>
             </div>
          </div>
