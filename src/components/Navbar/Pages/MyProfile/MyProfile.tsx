@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Posts } from './Posts/Posts.tsx';
 import { addPost } from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
 import { removePost } from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
+import MyProfileFriendsList from './MyProfileFriendsList/MyProfileFriendsList.tsx';
 
 const MyProfile: React.FC = () => {
    const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
@@ -29,9 +30,8 @@ const MyProfile: React.FC = () => {
       dispatch(addPost(newPost));
       setPostConstructor('');
    };
-   const dispatchRemovePost= (postId:string) => {
+   const dispatchRemovePost = (postId: string) => {
       dispatch(removePost(postId));
-	     
    };
 
    return (
@@ -39,6 +39,9 @@ const MyProfile: React.FC = () => {
          <div className={styles.myProfile__upperContent}>
             <div className={styles.profImg}>
                <img src="https://rickandmortyapi.com/api/character/avatar/558.jpeg" alt="avatart"></img>
+               <div className={styles.addedFriends}>
+                  <MyProfileFriendsList/>
+               </div>
             </div>
             <div className={styles.profInfo}>
                <span>Elon Tusk</span>

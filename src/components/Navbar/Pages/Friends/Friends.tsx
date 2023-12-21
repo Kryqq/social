@@ -14,6 +14,10 @@ const Friends: React.FC = () => {
 
 	return state.govnoJopa.friends} );
 
+
+
+
+	
    React.useEffect(() => {
       dispatch(fetchFriends());
    }, [fetchFriends]);

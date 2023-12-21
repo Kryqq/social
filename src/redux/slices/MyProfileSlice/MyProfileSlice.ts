@@ -1,17 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { resultsFriends } from '../FriendSlice/types';
 
 export interface IPost {
    message: string;
    postId: string;
-   dispatchRemovePost?: (postId: string) => void
+   dispatchRemovePost?: (postId: string) => void;
 }
 
 interface MyProfileState {
-	avatar: string;
-	name: string;
-	posts: IPost[];
-	friends: string[];
-	isOnline: boolean;
+   avatar: string;
+   name: string;
+   posts: IPost[];
+   friends: resultsFriends;
+   isOnline: boolean;
 }
 //РАЗОБРАТЬСЯ С РАЗНИЦЕЙ ИНТЕРФЕЙСА И КЛАССА
 // class MyProfileState {
@@ -35,9 +36,13 @@ const myProfileSlice = createSlice({
    initialState,
    reducers: {
       addPost(state, action: PayloadAction<IPost>) {
-	
          state.posts.push(action.payload);
-	  
+      },
+      addFriend(state, action) {
+         const existingFriend = state.friends.find((friend) => friend.id === action.payload.id);
+         if (!existingFriend) {
+            state.friends.push(action.payload);
+         }
       },
       removePost(state, action) {
          state.posts = state.posts.filter((post) => post.postId !== action.payload);
@@ -47,5 +52,5 @@ const myProfileSlice = createSlice({
    },
 });
 
-export const { addPost, removePost } = myProfileSlice.actions;
+export const { addPost, removePost, addFriend } = myProfileSlice.actions;
 export default myProfileSlice.reducer;

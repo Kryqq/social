@@ -1,4 +1,3 @@
-import { useDebugValue } from 'react';
 import { resultsFriends, FriendsSliceState } from './types';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 

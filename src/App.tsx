@@ -12,11 +12,14 @@ import { Context } from './Context.tsx';
 
 const App: React.FC = () => {
    const [activePopup, setActivePopup] = React.useState<boolean>(false);
+   const [isLogged, setIsLogged] = React.useState<boolean>(false);
 
-   const popUpLoginMenu = () =>  {
+   const popUpLoginMenu = () => {
       setActivePopup(!activePopup);
    };
-  
+
+
+
    return (
       <Context.Provider value={{ popUpLoginMenu }}>
          <div className="app-wrapper">
