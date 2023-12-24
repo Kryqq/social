@@ -6,6 +6,7 @@ import { Posts } from './Posts/Posts.tsx';
 import { addPost } from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
 import { removePost } from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
 import MyProfileFriendsList from './MyProfileFriendsList/MyProfileFriendsList.tsx';
+import { Link } from 'react-router-dom';
 
 const MyProfile: React.FC = () => {
    const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
@@ -40,7 +41,9 @@ const MyProfile: React.FC = () => {
             <div className={styles.profImg}>
                <img src="https://rickandmortyapi.com/api/character/avatar/558.jpeg" alt="avatart"></img>
                <div className={styles.addedFriends}>
-                  <MyProfileFriendsList/>
+                  <Link to=''>
+                     <MyProfileFriendsList />
+                  </Link>
                </div>
             </div>
             <div className={styles.profInfo}>

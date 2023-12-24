@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './components/Header/Header.tsx';
 import Navbar from './components/Navbar/Navbar.tsx';
 import { Routes, Route } from 'react-router-dom';
-import Friends from './components/Navbar/Pages/Friends/Friends.tsx';
+import PossibleFriends from './components/Navbar/Pages/Friends/PossibleFriends.tsx';
 import News from './components/Navbar/Pages/News/News.tsx';
 import MyProfile from './components/Navbar/Pages/MyProfile/MyProfile.tsx';
 import FriendProfile from './components/Navbar/Pages/Friends/FriendProfile/FriendProfile.tsx';
@@ -18,8 +18,6 @@ const App: React.FC = () => {
       setActivePopup(!activePopup);
    };
 
-
-
    return (
       <Context.Provider value={{ popUpLoginMenu }}>
          <div className="app-wrapper">
@@ -33,7 +31,7 @@ const App: React.FC = () => {
             <div className="app-wrapper-content">
                <Routes>
                   <Route path="/news" element={<News />} />
-                  <Route path="/friends" element={<Friends />} />
+                  <Route path="/friends" element={<PossibleFriends />} />
                   <Route path="/myprofile" element={<MyProfile />} />
                   <Route path="/profilePage" element={<FriendProfile />} />
                </Routes>

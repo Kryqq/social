@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Friend.module.scss';
+import styles from './PossibleFriend.module.scss';
 import { useAppDispatch } from '../../../../../redux/store/store.tsx';
 import { deleteFriendSlice } from '../../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 import { Link } from 'react-router-dom';

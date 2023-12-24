@@ -1,9 +1,9 @@
 import React from 'react';
-
+import styles from './MyProfileFriend.module.scss'
 const MyProfileFriend = ({name, image, id}) => {
    return (
-      <div>
-         <img src={image}></img>
+      <div className = {styles.myProfileFriend_container}>
+         <img src={image} className = {styles.myProfileFriend_container_image}></img>
 	    <div>{name}</div>
       </div>
    );

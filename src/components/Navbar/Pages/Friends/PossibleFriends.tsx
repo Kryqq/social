@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Friends.module.scss';
+import styles from './PossibleFriends.module.scss';
 
-import { Friend } from './Friend/Friend.tsx';
+import { Friend } from './Friend/PossibleFriend.tsx';
 import { useSelector} from 'react-redux';
 import { fetchFriends, iFriendList } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 
