@@ -6,7 +6,7 @@ const Header = () => {
       <div className={styles.navbar__container}>
          <div className={styles.navbar__wrapper}>
             <Link to="/myProfile">Профиль</Link>
-            <Link to="/friends">Друзья</Link>
+            <Link to="/possibleFriends">Возможные друзья</Link>
             <Link to="/news">Новости</Link>
          </div>
       </div>

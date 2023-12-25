@@ -41,9 +41,7 @@ const MyProfile: React.FC = () => {
             <div className={styles.profImg}>
                <img src="https://rickandmortyapi.com/api/character/avatar/558.jpeg" alt="avatart"></img>
                <div className={styles.addedFriends}>
-                  <Link to=''>
-                     <MyProfileFriendsList />
-                  </Link>
+                  <MyProfileFriendsList />
                </div>
             </div>
             <div className={styles.profInfo}>

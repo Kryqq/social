@@ -13,13 +13,14 @@ export const Friend: React.FC = ({ id, name, gender, image, location, species })
 
    const handleAddFriend = () => {
       dispatch(addFriend({ id, name, gender, image, location, species }));
+      dispatch(deleteFriendSlice(id));
    };
 
    return (
       <div className={styles.friend__container}>
          <div className={styles.friend__wrapper}>
             <div className={styles.image__wrapper}>
-               <Link to="/profilePage">
+               <Link to="/possiblefriends/possiblefriend">
                   <img src={image}></img>
                </Link>
                <div className={styles.button__wrapper}>
@@ -33,7 +34,7 @@ export const Friend: React.FC = ({ id, name, gender, image, location, species })
             </div>
             <div className={styles.span__wrapper}>
                <span className={styles.span__name}>
-                  <Link to="/profilePage">{name}</Link>
+                  <Link to="/possiblefriends/possibleFriend">{name}</Link>
                </span>
                <span className={styles.span__gender}>Gender: {gender} </span>
                <span className={styles.span__location}> Location: {location.name} </span>

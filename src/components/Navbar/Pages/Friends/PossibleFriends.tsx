@@ -2,31 +2,26 @@ import React from 'react';
 import styles from './PossibleFriends.module.scss';
 
 import { Friend } from './Friend/PossibleFriend.tsx';
-import { useSelector} from 'react-redux';
-import { fetchFriends, iFriendList } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
+import { useSelector } from 'react-redux';
+import { fetchPossibleFriends, iFriendList } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
 
 const Friends: React.FC = () => {
    const dispatch = useAppDispatch();
-  
-   const friends = useSelector((state: {govnoJopa:iFriendList}) =>{
+   const possibleFriends = useSelector((state: { govnoJopa: iFriendList }) => {
+      return state.govnoJopa.possibleFriends;
+   });
 
-	return state.govnoJopa.friends} );
-
-
-
-
-	
    React.useEffect(() => {
-      dispatch(fetchFriends());
-   }, [fetchFriends]);
+      dispatch(fetchPossibleFriends());
+   }, [fetchPossibleFriends]);
 
    return (
       <div>
-         {friends ? (
+         {possibleFriends ? (
             <div className={styles.friends__wrapper}>
-               {friends.map((friend: any) => (
+               {possibleFriends.map((friend: any) => (
                   <Friend key={friend.id} {...friend} />
                ))}
             </div>

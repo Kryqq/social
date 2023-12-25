@@ -9,6 +9,7 @@ import MyProfile from './components/Navbar/Pages/MyProfile/MyProfile.tsx';
 import FriendProfile from './components/Navbar/Pages/Friends/FriendProfile/FriendProfile.tsx';
 import Popup from './components/Popup/Popup.tsx';
 import { Context } from './Context.tsx';
+import MyProfileFriend from './components/Navbar/Pages/MyProfile/MyProfileFriendsList/MyProfileFriendList/MyProfileFriend.tsx';
 
 const App: React.FC = () => {
    const [activePopup, setActivePopup] = React.useState<boolean>(false);
@@ -31,9 +32,9 @@ const App: React.FC = () => {
             <div className="app-wrapper-content">
                <Routes>
                   <Route path="/news" element={<News />} />
-                  <Route path="/friends" element={<PossibleFriends />} />
+                  <Route path="/possibleFriends" element={<PossibleFriends />} />
                   <Route path="/myprofile" element={<MyProfile />} />
-                  <Route path="/profilePage" element={<FriendProfile />} />
+                  <Route path="/possibleFriends/:possiblefriend/:id" element={<FriendProfile />} />
                </Routes>
             </div>
          </div>

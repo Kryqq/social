@@ -1,58 +1,56 @@
 import { resultsFriends, FriendsSliceState } from './types';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export const fetchFriends = createAsyncThunk< FriendsSliceState, undefined>('friends/fetchFriends', async function () {
-   const response = await fetch(`https://rickandmortyapi.com/api/character`);
-   const data = await response.json();
+export const fetchPossibleFriends = createAsyncThunk<FriendsSliceState, undefined>(
+   'friends/fetchFriends',
+   async function () {
+      const response = await fetch(`https://rickandmortyapi.com/api/character`);
 
-   return data;
-});
+      const data = await response.json();
+
+      return data;
+   }
+);
 
 export interface iFriendList {
-   friends: resultsFriends;
+   possibleFriends: resultsFriends;
    loading: boolean;
    error: null | string;
 }
 
 const initialState = {
-   friends: [],
+   possibleFriends: [],
 
    loading: false,
    error: null,
 } as iFriendList;
 
-
-const friendsSlice = createSlice({
-   name: 'friends',
+const possibleFriends = createSlice({
+   name: 'possibleFriends',
    initialState,
    reducers: {
       deleteFriendSlice(state, action: PayloadAction<number>) {
-     
-       
-         state.friends = state.friends.filter((friend) => friend.id !== action.payload);
-	    
-      
+         state.possibleFriends = state.possibleFriends.filter((friend) => friend.id !== action.payload);
       },
    },
    extraReducers: (builder) => {
       builder
-         .addCase(fetchFriends.pending, (state, action) => {
+         .addCase(fetchPossibleFriends.pending, (state, action) => {
             state.loading = true;
             state.error = null;
          })
-         .addCase(fetchFriends.fulfilled, (state, action) => {
-	
-            state.friends = action.payload.results;
-		
+         .addCase(fetchPossibleFriends.fulfilled, (state, action) => {
+            state.possibleFriends = action.payload.results;
+
             state.loading = false;
             state.error = null;
          })
-         .addCase(fetchFriends.rejected, (state, action) => {
+         .addCase(fetchPossibleFriends.rejected, (state, action) => {
             state.loading = false;
             state.error = 'Somthing went wrong';
          });
    },
 });
 
-export const { deleteFriendSlice } = friendsSlice.actions;
-export default friendsSlice.reducer;
+export const { deleteFriendSlice } = possibleFriends.actions;
+export default possibleFriends.reducer;
