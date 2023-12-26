@@ -11,7 +11,7 @@ const LoginMenu = () => {
                <div className={styles.loginMenu__svg}>
                   <svg
                      xmlns="http://www.w3.org/2000/svg"
-                     fill="#000000"
+                     fill="#ffff"
                      width="20px"
                      height="20px"
                      viewBox="-5.5 0 19 19"

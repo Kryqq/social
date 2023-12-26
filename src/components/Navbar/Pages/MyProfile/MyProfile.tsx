@@ -45,8 +45,8 @@ const MyProfile: React.FC = () => {
                </div>
             </div>
             <div className={styles.profInfo}>
-               <span>Elon Tusk</span>
-               <span>Online</span>
+               <div className={styles.profInfoName}>Elon Tusk</div>
+               <div>Online</div>
             </div>
          </div>
 

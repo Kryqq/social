@@ -5,9 +5,15 @@ const Header = () => {
    return (
       <div className={styles.navbar__container}>
          <div className={styles.navbar__wrapper}>
-            <Link to="/myProfile">Профиль</Link>
-            <Link to="/possibleFriends">Возможные друзья</Link>
-            <Link to="/news">Новости</Link>
+            <Link className={styles.navbar__link} to="/myProfile">
+               Профиль
+            </Link>
+            <Link className={styles.navbar__link} to="/possibleFriends">
+               Возможные друзья
+            </Link>
+            <Link className={styles.navbar__link} to="/news">
+               Новости
+            </Link>
          </div>
       </div>
    );
