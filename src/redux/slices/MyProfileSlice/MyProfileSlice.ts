@@ -45,7 +45,7 @@ const myProfileSlice = createSlice({
             state.friends.push(action.payload);
          }
       },
-      removeFriend(state, action: PayloadAction) {
+      removeFriend(state, action: PayloadAction<number>) {
          state.friends = state.friends.filter((friend) => friend.id !== action.payload);
 	    console.log(action.payload)
       },

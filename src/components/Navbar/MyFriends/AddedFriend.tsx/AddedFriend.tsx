@@ -1,14 +1,23 @@
 import React from 'react';
 import styles from './AddedFriend.module.scss';
 import { useAppDispatch } from '../../../../../src/redux/store/store.tsx';
-import { removeFriend } from '../../../../../src/redux/slices/MyProfileSlice/MyProfileSlice.ts'
+import { removeFriend } from '../../../../../src/redux/slices/MyProfileSlice/MyProfileSlice.ts';
 import { Link } from 'react-router-dom';
 
-export const AddedFriend: React.FC = ({ id, name, gender, image, location, species }) => {
+export interface AddedFriendProps {
+   id: number;
+   name: string;
+   gender: string;
+   image: string;
+   location: string;
+   species: string;
+}
+
+export const AddedFriend: React.FC<AddedFriendProps> = ({ id, name, gender, image, location, species }) => {
    const dispatch = useAppDispatch();
-   const deleteFriend = () => {
+   const deleteFriend = ()  => {
       dispatch(removeFriend(id));
-	 console.log('click')
+ 
    };
 
    //  const handleAddFriend = () => {
