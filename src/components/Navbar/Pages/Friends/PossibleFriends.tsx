@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { fetchPossibleFriends, iFriendList } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
+import { resultsFriends } from '../../../../redux/slices/FriendSlice/types.ts';
 
 const Friends: React.FC = () => {
    const dispatch = useAppDispatch();

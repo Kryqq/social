@@ -38,11 +38,16 @@ const myProfileSlice = createSlice({
       addPost(state, action: PayloadAction<IPost>) {
          state.posts.push(action.payload);
       },
-      addFriend(state, action) {
+      addFriend(state, action: PayloadAction<MyProfileState>) {
          const existingFriend = state.friends.find((friend) => friend.id === action.payload.id);
+	   
          if (!existingFriend) {
             state.friends.push(action.payload);
          }
+      },
+      removeFriend(state, action: PayloadAction) {
+         state.friends = state.friends.filter((friend) => friend.id !== action.payload);
+	    console.log(action.payload)
       },
       removePost(state, action) {
          state.posts = state.posts.filter((post) => post.postId !== action.payload);
@@ -52,5 +57,5 @@ const myProfileSlice = createSlice({
    },
 });
 
-export const { addPost, removePost, addFriend } = myProfileSlice.actions;
+export const { addPost, removePost, addFriend, removeFriend } = myProfileSlice.actions;
 export default myProfileSlice.reducer;

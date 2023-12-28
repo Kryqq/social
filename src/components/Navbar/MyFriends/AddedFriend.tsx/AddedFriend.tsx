@@ -1,20 +1,20 @@
 import React from 'react';
-import styles from './PossibleFriend.module.scss';
-import { useAppDispatch } from '../../../../../redux/store/store.tsx';
-import { deleteFriendSlice } from '../../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
+import styles from './AddedFriend.module.scss';
+import { useAppDispatch } from '../../../../../src/redux/store/store.tsx';
+import { removeFriend } from '../../../../../src/redux/slices/MyProfileSlice/MyProfileSlice.ts'
 import { Link } from 'react-router-dom';
-import { addFriend } from '../../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
 
-export const Friend: React.FC = ({ id, name, gender, image, location, species }) => {
+export const AddedFriend: React.FC = ({ id, name, gender, image, location, species }) => {
    const dispatch = useAppDispatch();
    const deleteFriend = () => {
-      dispatch(deleteFriendSlice(id));
+      dispatch(removeFriend(id));
+	 console.log('click')
    };
 
-   const handleAddFriend = () => {
-      dispatch(addFriend({ id, name, gender, image, location, species }));
-      dispatch(deleteFriendSlice(id));
-   };
+   //  const handleAddFriend = () => {
+   //     dispatch(addFriend({ id, name, gender, image, location, species }));
+   //     dispatch(deleteFriendSlice(id));
+   //  };
 
    return (
       <div className={styles.friend__container}>
@@ -25,11 +25,9 @@ export const Friend: React.FC = ({ id, name, gender, image, location, species })
                </Link>
                <div className={styles.button__wrapper}>
                   <button onClick={deleteFriend} className={styles.button__addTo_friend}>
-                     Больше не показывать
+                     Удалить из друзей
                   </button>
-                  <button onClick={handleAddFriend} className={styles.button__send_message}>
-                     Добавить в друзья
-                  </button>
+                  <button className={styles.button__send_message}>Написать сообщение</button>
                </div>
             </div>
             <div className={styles.span__wrapper}>

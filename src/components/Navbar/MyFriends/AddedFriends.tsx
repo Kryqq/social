@@ -1,8 +1,8 @@
 import React from 'react';
+import myProfileState from '../../../redux/slices/MyProfileSlice/MyProfileSlice.tsx';
 import { useSelector } from 'react-redux';
-import myProfileState from '../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
+import { AddedFriend } from './AddedFriend.tsx/AddedFriend.tsx';
 import styles from '../Pages/Friends/PossibleFriends.module.scss';
-import { Friend } from '../Pages/Friends/Friend/PossibleFriend.tsx';
 const AddedFriends = () => {
    const addedFriends = useSelector((state: { myProfileSlice: typeof myProfileState }) => state.myProfileSlice.friends);
 
@@ -11,7 +11,7 @@ const AddedFriends = () => {
          <div>
             <div className={styles.friends__wrapper}>
                {addedFriends.map((friend) => (
-                  <Friend {...friend} />
+                  <AddedFriend {...friend} />
                ))}
             </div>
          </div>
