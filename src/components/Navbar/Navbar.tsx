@@ -8,6 +8,9 @@ const Header = () => {
             <Link className={styles.navbar__link} to="/myProfile">
                Профиль
             </Link>
+            <Link className={styles.navbar__link} to="/myFriends">
+               Мои друзья
+            </Link>
             <Link className={styles.navbar__link} to="/possibleFriends">
                Возможные друзья
             </Link>

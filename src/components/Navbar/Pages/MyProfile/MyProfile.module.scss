@@ -93,8 +93,7 @@
    img {
       height: 70px;
       width: 70px;
-      padding: 0px 20px 0px 20px;
-
+      margin: 0px 20px 0px 20px;
       justify-content: center;
       align-items: center;
    }
@@ -103,4 +102,11 @@
       align-items: center;
       font-size: 15px;
    }
+}
+.friends {
+   width: 350px;
+   margin: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
