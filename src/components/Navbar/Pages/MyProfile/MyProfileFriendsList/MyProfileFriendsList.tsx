@@ -5,21 +5,16 @@ import myProfileState from '../../../../redux/slices/MyProfileSlice/MyProfileSli
 import styles from '../../MyProfile/MyProfile.module.scss';
 import { Link } from 'react-router-dom';
 const MyProfileFriendsList = () => {
-   const myProfileFriends = useSelector(
-      (state: { myProfileSlice: typeof myProfileState }) => state.myProfileSlice.friends
-   );
    const myProfileFriendsShowed = useSelector((state: { myProfileSlice: typeof myProfileState }) =>
       state.myProfileSlice.friends.slice(0, 3)
    );
 
    return (
-      <div className={styles.friends} >
-         <h1>Друзья</h1>
-         <div className={styles.addedProfileFriendsPopup}>
-            {myProfileFriends.map((friend) => (
-               <MyProfileFriend key={friend.id} {...friend} />
-            ))}
-         </div>
+      <div className={styles.friends}>
+         <Link to={`/myFriends`}>
+            <h1>Друзья</h1>
+         </Link>
+
          <div>
             <div className={styles.myProfileFriendsShowed}>
                {myProfileFriendsShowed.map((friend) => (
