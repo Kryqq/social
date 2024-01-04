@@ -50,7 +50,6 @@ export const authSlice = createSlice({
          ...state,
          authData: {
             ...state.authData,
-            accessToken: action.payload,
             isLoading: false,
             error: action.payload,
          },
