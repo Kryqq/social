@@ -79,5 +79,18 @@ export const authSlice = createSlice({
             error: action.payload,
          },
       }),
+      logoutSuccess: (): AuthState => initialState,
    },
 });
+
+export const {
+   loginStart,
+   loginSucess,
+   loginFailure,
+   loadProfileStart,
+   loadProfileSucess,
+   loadProfileFailure,
+   logoutSuccess,
+} = authSlice.actions;
+
+export default authSlice.reducer;
