@@ -1,7 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
-import api from '../../api';
+import api from '../../api/index.ts';
 import { ILoginRequest } from '../../api/types';
-import { loginStart, loginSucess, loginFailure } from '../auth/authReducer';
+import { loginStart, loginSucess, loginFailure } from '../auth/authReducer.ts';
 
 export const loginUser =
    (data: ILoginRequest) =>
@@ -12,7 +12,7 @@ export const loginUser =
          const res = await api.auth.login(data);
 
          dispatch(loginSucess(res.data.accessToken));
-         //dispatch(getProfile());
+     //     dispatch(getProfile());
       } catch (e: any) {
          console.error(e);
 

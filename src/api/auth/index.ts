@@ -1,6 +1,8 @@
-import { axiosInstance } from '../instatnce';
+import { axiosInstance } from '../instatnce.ts';
 import { IloginResponse, ILoginRequest } from '../types';
-import Endpoints from '../endpoints';
+import Endpoints from '../endpoints.ts';
 import { AxiosPromise } from 'axios';
+
+
 export const login = (params: ILoginRequest): AxiosPromise<IloginResponse> =>
    axiosInstance.post(Endpoints.AUTH.LOGIN, params);

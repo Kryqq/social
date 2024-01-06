@@ -5,8 +5,6 @@
    border-radius: 40px;
    display: flex;
    flex-direction: column;
-   pointer-events: none;
-   
 }
 .popup__login {
    display: flex;
@@ -16,7 +14,7 @@
       width: 200px;
       height: 20px;
    }
-   d span {
+   span {
       margin-bottom: 20px;
    }
 }
@@ -40,20 +38,4 @@
    display: flex;
    justify-content: center;
    align-items: center;
-}
-
-.popup__header {
-   display: flex;
-   justify-content: right;
-   margin-bottom: 100px;
-}
-.popup__header_btn {
-   margin: 15px 15px 0px 0px;
-   border-radius: 5px;
-   width: 40px;
-   height: 40px;
-   cursor: pointer;
-   border: none;
-   background-color: #afafaf;
-   pointer-events: all;
 }

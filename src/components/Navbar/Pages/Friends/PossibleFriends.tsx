@@ -10,8 +10,8 @@ import { resultsFriends } from '../../../../redux/slices/FriendSlice/types.ts';
 
 const Friends: React.FC = () => {
    const dispatch = useAppDispatch();
-   const possibleFriends = useSelector((state: { govnoJopa: iFriendList }) => {
-      return state.govnoJopa.possibleFriends;
+   const possibleFriends = useSelector((state: { possibleFriends: iFriendList }) => {
+      return state.possibleFriends.possibleFriends;
    });
 
    React.useEffect(() => {

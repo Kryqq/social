@@ -2,8 +2,6 @@ import React, { useContext } from 'react';
 import styles from './LoginMenu.module.scss';
 import { Context } from '../../../Context.tsx';
 const LoginMenu = () => {
-   const { popUpLoginMenu } = useContext(Context);
-
    return (
       <div className={styles.loginMenu__container}>
          <div className={styles.loginMenu}>
@@ -21,7 +19,7 @@ const LoginMenu = () => {
                   </svg>
                </div>
                <div className={styles.loginMenu__userLogin}>
-                  <button onClick={popUpLoginMenu} className={styles.loginMenu__userLoginBtn}>
+                  <button  className={styles.loginMenu__userLoginBtn}>
                      Login
                   </button>
                </div>

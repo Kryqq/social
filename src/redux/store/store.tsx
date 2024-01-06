@@ -12,7 +12,7 @@ export const store = configureStore({
       authSlice,
    },
    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(...(process.env.NODE_END !== 'production' ? [logger] : [])),
+      getDefaultMiddleware().concat(...(process.env.NODE_ENV !== 'production' ? [logger] : [])),
 });
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch = () => useDispatch<AppDispatch>();
