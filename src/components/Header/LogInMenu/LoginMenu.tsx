@@ -1,7 +1,18 @@
 import React, { useContext } from 'react';
 import styles from './LoginMenu.module.scss';
-import { Context } from '../../../Context.tsx';
+import { useAppDispatch } from '../../../redux/store/store.tsx';
+import { logoutUser } from '../../../redux/auth/actionCreators.ts';
+import { useNavigate } from 'react-router-dom';
+
 const LoginMenu = () => {
+   const [isOpen, setOpen] = React.useState(false);
+   const dispatch = useAppDispatch();
+   const navigate = useNavigate();
+
+   const handleLogout = () => {
+      dispatch(logoutUser());
+      navigate('/');
+   };
    return (
       <div className={styles.loginMenu__container}>
          <div className={styles.loginMenu}>
@@ -19,9 +30,14 @@ const LoginMenu = () => {
                   </svg>
                </div>
                <div className={styles.loginMenu__userLogin}>
-                  <button  className={styles.loginMenu__userLoginBtn}>
+                  <button onClick={() => setOpen(!isOpen)} className={styles.loginMenu__userLoginBtn}>
                      Login
                   </button>
+                  <div className={isOpen ? styles.popupContentMenuActive : styles.popupContentMenu}>
+                     <div className={styles.popupContent} onClick={handleLogout}>
+                        Выйти из профиля
+                     </div>
+                  </div>
                </div>
             </div>
          </div>

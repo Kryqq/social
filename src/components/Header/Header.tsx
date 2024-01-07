@@ -8,9 +8,9 @@ const Header = () => {
       <div className={styles.header__container}>
          <div className={styles.header__wrapper}>
             <div>SOCIAL</div>
-            <Link to="/login">
+         
                <LogIn />
-            </Link>
+        
          </div>
       </div>
    );
