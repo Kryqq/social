@@ -23,6 +23,21 @@ export type episodeFriends = {
    episode: string[];
 };
 
+export type resultsFriend = {
+   id: number;
+   name: string;
+   status: string;
+   species: string;
+   type: string;
+   gender: string;
+   origin: origin;
+   locatin: locationFriends;
+   image: imageFriends;
+   episode: episodeFriends;
+   url: string;
+   created: string;
+};
+
 export type resultsFriends = {
    id: number;
    name: string;
