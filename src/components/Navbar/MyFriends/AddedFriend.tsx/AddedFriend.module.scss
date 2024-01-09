@@ -1,71 +1,79 @@
 .friend__container {
-	margin: 10px 10px;
-  }
-  
-  .friend__wrapper {
-	border-bottom: solid 1px #c5d1ff;
-	padding-top: 20px;
-	margin-left: 40px;
-	display: flex;
-	justify-content: flex-start;
-  }
-  
-  .image__wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	img {
-	   width: 200px;
-	   padding-bottom: 10px;
-	   border-radius: 40px;
-	}
-  }
-  
-  .button__wrapper {
-	display: flex;
-	width: 270px;
-	align-items: center;
-	justify-content: space-evenly;
-	padding-bottom: 5px;
-  
-	button {
-	   background-color: #7d88fc;
-	   color: #fff;
-	   padding: 8px 12px;
-	   border: none;
-	   border-radius: 4px;
-	   cursor: pointer;
-	   font-size: 12px;
-	   &:hover {
-		 background-color: #c5d1ff;
-	   }
-	}
-  }
-  
-  .span__wrapper {
-	font-size: 20px;
-	margin-left: 50px;
-	display: flex;
-	flex-direction: column;
-  
-	.span__name {
-	   a {
-		 color: white;
-	   }
-	   font-weight: 500;
-	   font-size: 25px;
-	   margin-bottom: 10px;
-	}
-	.span__gender {
-	   margin-bottom: 10px;
-	   font-size: 20px;
-	}
-	.span__location {
-	   font-size: 20px;
-	   margin-bottom: 10px;
-	}
-	.span__species {
-	   font-size: 20px;
-	}
-  }
-  
+   margin: 10px 10px;
+}
+
+.friend__wrapper {
+   border-bottom: solid 1px #c5d1ff;
+   padding-top: 20px;
+   margin-left: 40px;
+   display: flex;
+   justify-content: flex-start;
+}
+
+.image__wrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   img {
+      width: 200px;
+      padding-bottom: 10px;
+      border-radius: 40px;
+      box-shadow: 6px 6px 2px 1px #c5d1ff42;
+      &:hover {
+         scale: 102%;
+         box-shadow: 8px 8px 2px 1px #c5d1ff42;
+      }
+   }
+}
+
+.button__wrapper {
+   display: flex;
+   width: 270px;
+   align-items: center;
+   justify-content: space-evenly;
+   padding-bottom: 5px;
+
+   button {
+      display: flex;
+      justify-content: center;
+      margin: 12px 5px 0px 0px;
+      align-items: center;
+      background-color: #7d88fc;
+      color: #fff;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      &:hover {
+         background-color: #c5d1ff;
+      }
+   }
+}
+
+.span__wrapper {
+   font-size: 20px;
+   margin-left: 50px;
+   display: flex;
+   flex-direction: column;
+
+   .span__name {
+      a {
+         color: white;
+      }
+      font-weight: 500;
+      font-size: 25px;
+      margin-bottom: 10px;
+   }
+   .span__gender {
+      margin-bottom: 10px;
+      font-size: 20px;
+   }
+   .span__location {
+      font-size: 20px;
+      margin-bottom: 10px;
+   }
+   .span__species {
+      font-size: 20px;
+   }
+}

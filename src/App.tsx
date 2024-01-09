@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import { IRootState } from './redux/store/store.tsx';
 
 const App: React.FC = () => {
-   const isLoggedIn = useSelector((state: IRootState) => !!state.authSlice.authData.accessToken);
+   const isLoggedIn = true; //useSelector((state: IRootState) => !!state.authSlice.authData.accessToken);
    return (
       <div>
          {isLoggedIn ? (

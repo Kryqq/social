@@ -3,7 +3,7 @@ import styles from './Navbar.module.scss';
 import { Link } from 'react-router-dom';
 const Header = () => {
    return (
-      <div className={styles.navbar__container}>
+      <nav className={styles.navbar__container}>
          <div className={styles.navbar__wrapper}>
             <Link className={styles.navbar__link} to="/myProfile">
                Профиль
@@ -18,7 +18,7 @@ const Header = () => {
                Новости
             </Link>
          </div>
-      </div>
+      </nav>
    );
 };
 

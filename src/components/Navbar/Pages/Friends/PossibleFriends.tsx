@@ -19,17 +19,20 @@ const Friends: React.FC = () => {
    }, [fetchPossibleFriends]);
 
    return (
-      <div>
-         {possibleFriends ? (
-            <div className={styles.friends__wrapper}>
-               {possibleFriends.map((friend: any) => (
-                  <Friend key={friend.id} {...friend} />
-               ))}
-            </div>
-         ) : (
-            'загрузка'
-         )}
-      </div>
+      <main>
+         <h1>Возомжные друзья</h1>
+         <div>
+            {possibleFriends ? (
+               <div className={styles.friends__wrapper}>
+                  {possibleFriends.map((friend: any) => (
+                     <Friend key={friend.id} {...friend} />
+                  ))}
+               </div>
+            ) : (
+               'загрузка'
+            )}
+         </div>
+      </main>
    );
 };
 

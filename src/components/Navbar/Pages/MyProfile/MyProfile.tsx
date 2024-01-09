@@ -37,7 +37,7 @@ const MyProfile: React.FC = () => {
 
    return (
       <div className={styles.myProfile__container}>
-         <div className={styles.myProfile__upperContent}>
+         <main className={styles.myProfile__upperContent}>
             <div className={styles.profImg}>
                <img src="https://rickandmortyapi.com/api/character/avatar/558.jpeg" alt="avatart"></img>
                <div className={styles.addedFriends}>
@@ -48,7 +48,7 @@ const MyProfile: React.FC = () => {
                <div className={styles.profInfoName}>Elon Tusk</div>
                <div>Online</div>
             </div>
-         </div>
+         </main>
 
          <div className={styles.myProfile__bottomContent}>
             <div className={styles.myProfile__functions}></div>
