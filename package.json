@@ -4,6 +4,10 @@
    "private": true,
    "proxy": "http://localhost:3001",
    "dependencies": {
+      "@emotion/react": "^11.11.3",
+      "@emotion/styled": "^11.11.0",
+      "@mui/icons-material": "^5.15.4",
+      "@mui/material": "^5.15.3",
       "@reduxjs/toolkit": "^1.9.7",
       "@testing-library/jest-dom": "^5.17.0",
       "@testing-library/react": "^13.4.0",
@@ -29,6 +33,9 @@
       "typescript": "^5.2.2",
       "uuid": "^9.0.1",
       "web-vitals": "^2.1.4"
+   },
+   "overrides": {
+      "typescript": "^5.2.2"
    },
    "scripts": {
       "start": "react-scripts start",
@@ -56,7 +63,6 @@
    },
    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
    "main": "index.js",
-   "devDependencies": {},
    "keywords": [],
    "author": "",
    "license": "ISC"
