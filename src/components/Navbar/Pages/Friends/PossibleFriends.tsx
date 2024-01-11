@@ -1,23 +1,22 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './PossibleFriends.module.scss';
-
 import { Friend } from './Friend/PossibleFriend.tsx';
-
 import { fetchPossibleFriends, iFriendList } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
 import { resultsFriend } from '../../../../redux/slices/FriendSlice/types.ts';
+import { TextField } from '@mui/material';
+
 
 const Friends: React.FC = () => {
    const dispatch = useAppDispatch();
-   const inputRef = React.useRef<HTMLInputElement>(null);
 
    const [value, setValue] = React.useState<string>('');
 
-   const inputChange = () => {
-      if (inputRef.current) {
-         setValue(inputRef.current.value);
-      }
+   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newInputValue = event.target.value;
+
+      setValue(newInputValue);
    };
 
    const possibleFriends = useSelector((state: { possibleFriends: iFriendList }) => {
@@ -32,7 +31,14 @@ const Friends: React.FC = () => {
       <main>
          <h1 className={styles.possiblefriends}>
             Возомжные друзья
-            <input type="text" placeholder="Поиск друзей" value={value} ref={inputRef} onChange={inputChange}></input>
+            <TextField
+               id="outlined-controlled"
+               label="Поиск друзей"
+               type="text"
+               placeholder="Поиск друзей"
+               value={value}
+               onChange={inputChange}
+            ></TextField>
          </h1>
          <div>
             {possibleFriends ? (

@@ -5,20 +5,10 @@ import { deleteFriendSlice } from '../../../../../redux/slices/FriendSlice/Frine
 import { Link } from 'react-router-dom';
 import { addFriend } from '../../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
 import { Button } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-import { blue } from '@mui/material/colors';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-const theme = createTheme({
-   palette: {
-      primary: {
-         main: blue[500],
-      },
-      secondary: {
-         main: '#003c6c',
-      },
-   },
-});
+import theme from '../../../../../hooks/uiHooks/themes.ts';
+
 export const Friend: React.FC = ({ id, name, gender, image, location, species }) => {
    const dispatch = useAppDispatch();
    const deleteFriend = () => {
