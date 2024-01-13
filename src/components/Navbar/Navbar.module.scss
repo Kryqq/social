@@ -1,18 +1,18 @@
-// .navbar__container {
-//    grid-area: n;
-// }
-// .navbar__wrapper {
-//    display: flex;
-//    flex-direction: column;
-//    background-color: #7dc1c4;
-//    height: 100%;
-//    align-items: center;
-// }
-// .navbar__link {
-//    padding: 5px 10px 5px 10px;
-//    border-radius: 5px;
-//    background-color: #dfe6ff;
-//    &:hover {
-//       background-color: #7dc1c4;
-//    }
-// }
+.navbar__container {
+   grid-area: n;
+}
+.navbar__wrapper {
+   display: flex;
+   flex-direction: column;
+   background-color: #7dc1c4;
+   height: 100%;
+   align-items: center;
+}
+.navbar__link {
+   padding: 5px 10px 5px 10px;
+   border-radius: 5px;
+   background-color: #dfe6ff;
+   &:hover {
+      background-color: #7dc1c4;
+   }
+}

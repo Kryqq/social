@@ -4,11 +4,15 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 export const fetchPossibleFriends = createAsyncThunk<FriendsSliceState, undefined>(
    'friends/fetchFriends',
    async function () {
-      const response = await fetch(`https://rickandmortyapi.com/api/character`);
+      try {
+         const response = await fetch(`https://rickandmortyapi.com/api/character`);
 
-      const data = await response.json();
+         const data = await response.json();
 
-      return data;
+         return data;
+      } catch (error) {
+         console.error(error);
+      }
    }
 );
 
