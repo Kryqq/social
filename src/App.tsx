@@ -9,33 +9,45 @@ import MyProfile from './components/Navbar/Pages/MyProfile/MyProfile.tsx';
 import FriendProfile from './components/Navbar/Pages/Friends/FriendProfile/FriendProfile.tsx';
 import LoginMenu from './components/Popup/LoginMenu.tsx';
 import AddedFriends from './components/Navbar/MyFriends/AddedFriends.tsx';
-import { useSelector } from 'react-redux';
-import { IRootState } from './redux/store/store.tsx';
+import { ColorModeContext, useMode } from './hooks/uiHooks/themes.ts';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+
 
 const App: React.FC = () => {
-   const isLoggedIn = true; //useSelector((state: IRootState) => !!state.authSlice.authData.accessToken);
-   return (
-      <div>
-         {isLoggedIn ? (
-            <div className="app-wrapper">
-               <Header />
-               <Navbar />
 
-               <div className="app-wrapper-content">
-                  <Routes>
-                     <Route path="/" element={<LoginMenu />} />
-                     <Route path="/news" element={<News />} />
-                     <Route path="/possibleFriends" element={<PossibleFriends />} />
-                     <Route path="/myFriends" element={<AddedFriends />} />
-                     <Route path="/myprofile" element={<MyProfile />} />
-                     <Route path="/possibleFriends/:possiblefriend/:id" element={<FriendProfile />} />
-                  </Routes>
-               </div>
-            </div>
-         ) : (
-            <LoginMenu />
-         )}
-      </div>
+
+
+
+   const [theme, colorMode] = useMode();
+   const isLoggedIn = true; //useSelector((state: IRootState) => !!state.authSlice.authData.accessToken);
+
+
+   return (
+      <ColorModeContext.Provider value={colorMode}>
+         <ThemeProvider theme={theme}>
+            <CssBaseline>
+               {isLoggedIn ? (
+                  <div className="app-wrapper">
+                     <Header />
+                     <Navbar />
+
+                     <div className="app-wrapper-content">
+                        <Routes>
+                           <Route path="/" element={<LoginMenu />} />
+                           <Route path="/news" element={<News />} />
+                           <Route path="/possibleFriends" element={<PossibleFriends />} />
+                           <Route path="/myFriends" element={<AddedFriends />} />
+                           <Route path="/myprofile" element={<MyProfile />} />
+                           <Route path="/possibleFriends/:possiblefriend/:id" element={<FriendProfile />} />
+                        </Routes>
+                     </div>
+                  </div>
+               ) : (
+                  <LoginMenu />
+               )}
+            </CssBaseline>
+         </ThemeProvider>
+      </ColorModeContext.Provider>
    );
 };
 

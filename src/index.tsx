@@ -9,15 +9,13 @@ import { store } from './redux/store/store.tsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-   <>
-      <BrowserRouter>
-         <React.StrictMode>
-            <Provider store={store}>
-               <App />
-            </Provider>
-         </React.StrictMode>
-      </BrowserRouter>
-   </>
+   <BrowserRouter>
+      <React.StrictMode>
+         <Provider store={store}>
+            <App />
+         </Provider>
+      </React.StrictMode>
+   </BrowserRouter>
 );
 
 reportWebVitals();

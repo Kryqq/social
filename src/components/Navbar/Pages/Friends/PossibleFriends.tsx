@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import styles from './PossibleFriends.module.scss';
 import { Friend } from './Friend/PossibleFriend.tsx';
@@ -7,22 +7,17 @@ import { useAppDispatch } from '../../../../redux/store/store.tsx';
 import { resultsFriend } from '../../../../redux/slices/FriendSlice/types.ts';
 import { TextField } from '@mui/material';
 
-
 const Friends: React.FC = () => {
    const dispatch = useAppDispatch();
-
    const [value, setValue] = React.useState<string>('');
-
    const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newInputValue = event.target.value;
 
       setValue(newInputValue);
    };
-
    const possibleFriends = useSelector((state: { possibleFriends: iFriendList }) => {
       return state.possibleFriends.possibleFriends;
    });
-
    React.useEffect(() => {
       dispatch(fetchPossibleFriends());
    }, [fetchPossibleFriends]);

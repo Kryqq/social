@@ -7,18 +7,18 @@ const NavBar: React.FC = () => {
    return (
       <div className={styles.navbar__container}>
          <div className={styles.navbar__wrapper}>
-            {' '}
+
             <Button>
-               <Link to={'/myProfile'}> Профиль</Link>{' '}
+               <Link to={'/myProfile'}> Профиль</Link>
             </Button>
             <Button>
-               <Link to={'/myFriends'}> Мои друзья</Link>{' '}
+               <Link to={'/myFriends'}> Мои друзья</Link>
             </Button>
             <Button>
                <Link to={'/possibleFriends'}> Возможные друзья</Link>
             </Button>
             <Button>
-               <Link to={'/news'}>Новости</Link>{' '}
+               <Link to={'/news'}>Новости</Link>
             </Button>
          </div>
       </div>

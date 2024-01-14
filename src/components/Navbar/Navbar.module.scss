@@ -4,7 +4,7 @@
 .navbar__wrapper {
    display: flex;
    flex-direction: column;
-   background-color: #7dc1c4;
+//    background-color: #7dc1c4;
    height: 100%;
    align-items: center;
 }
@@ -13,6 +13,6 @@
    border-radius: 5px;
    background-color: #dfe6ff;
    &:hover {
-      background-color: #7dc1c4;
+     //  background-color: #7dc1c4;
    }
 }
