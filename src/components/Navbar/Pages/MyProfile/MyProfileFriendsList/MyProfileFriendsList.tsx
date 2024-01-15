@@ -4,10 +4,9 @@ import { useSelector } from 'react-redux';
 import myProfileState from '../../../../redux/slices/MyProfileSlice/MyProfileSlice.tsx';
 import styles from '../../MyProfile/MyProfile.module.scss';
 import { Link } from 'react-router-dom';
+import { myProfileStateFriends } from '../../../../../redux/slices/MyProfileSlice/selectors.ts';
 const MyProfileFriendsList = () => {
-   const myProfileFriendsShowed = useSelector((state: { myProfileSlice: typeof myProfileState }) =>
-      state.myProfileSlice.friends.slice(0, 3)
-   );
+   const myProfileFriendsShowed = useSelector(myProfileStateFriends);
 
    return (
       <div className={styles.friends}>

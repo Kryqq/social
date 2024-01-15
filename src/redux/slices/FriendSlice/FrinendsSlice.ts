@@ -24,7 +24,6 @@ export interface iFriendList {
 
 const initialState = {
    possibleFriends: [],
-
    loading: false,
    error: null,
 } as iFriendList;

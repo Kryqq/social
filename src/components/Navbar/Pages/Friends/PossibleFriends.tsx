@@ -1,28 +1,30 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './PossibleFriends.module.scss';
 import { Friend } from './Friend/PossibleFriend.tsx';
-import { fetchPossibleFriends, iFriendList } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
+import { fetchPossibleFriends } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
 import { resultsFriend } from '../../../../redux/slices/FriendSlice/types.ts';
 import { Button, TextField } from '@mui/material';
-import { searchType } from '../../../../redux/slices/FiltersSlice/types.ts';
+
 import { filterPossibleFriendSlice } from '../../../../redux/slices/FiltersSlice/FiltersSlice.ts';
+import { selectPossibleFriends } from '../../../../redux/slices/FriendSlice/selectors.ts';
+import { selectFiltersPossibleFriends } from '../../../../redux/slices/FiltersSlice/selectors.ts';
 
 const Friends: React.FC = () => {
    const dispatch = useAppDispatch();
+
    const [value, setValue] = React.useState<string>('');
+
    const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newInputValue = event.target.value;
-
       setValue(newInputValue);
       dispatch(filterPossibleFriendSlice(newInputValue));
    };
-   const possibleFriends = useSelector((state: { possibleFriends: iFriendList }) => {
-      return state.possibleFriends.possibleFriends;
-   });
 
-   const searchValue = useSelector((state: { filtersSlice: searchType }) => state.filtersSlice.searchValue);
+   const { possibleFriends, loading, error } = useSelector(selectPossibleFriends);
+
+   const { searchValue } = useSelector(selectFiltersPossibleFriends);
 
    React.useEffect(() => {
       dispatch(fetchPossibleFriends());
