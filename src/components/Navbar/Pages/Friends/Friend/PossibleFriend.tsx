@@ -4,13 +4,12 @@ import { useAppDispatch } from '../../../../../redux/store/store.tsx';
 import { deleteFriendSlice } from '../../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 import { Link } from 'react-router-dom';
 import { addFriend } from '../../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
-import { Button, colors } from '@mui/material';
+import { Button, colors, useTheme } from '@mui/material';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
-
-
 export const Friend: React.FC = ({ id, name, gender, image, location, species }) => {
+   const theme = useTheme();
    const dispatch = useAppDispatch();
    const deleteFriend = () => {
       dispatch(deleteFriendSlice(id));
@@ -20,8 +19,6 @@ export const Friend: React.FC = ({ id, name, gender, image, location, species })
       dispatch(addFriend({ id, name, gender, image, location, species }));
       dispatch(deleteFriendSlice(id));
    };
-
-
 
    return (
       <div className={styles.friend__container}>
@@ -36,7 +33,7 @@ export const Friend: React.FC = ({ id, name, gender, image, location, species })
                         width: 180,
                         backgroundColor: theme.palette.primary.main,
                         ':hover': {
-                           backgroundColor: 
+                           backgroundColor: theme.palette.secondary.main,
                         },
                      }}
                      variant="contained"

@@ -56,5 +56,5 @@ const possibleFriends = createSlice({
    },
 });
 
-export const { deleteFriendSlice } = possibleFriends.actions;
+export const { deleteFriendSlice} = possibleFriends.actions;
 export default possibleFriends.reducer;
