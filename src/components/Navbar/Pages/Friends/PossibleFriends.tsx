@@ -6,21 +6,38 @@ import { fetchPossibleFriends } from '../../../../redux/slices/FriendSlice/Frine
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
 import { resultsFriend } from '../../../../redux/slices/FriendSlice/types.ts';
 import { Button, TextField } from '@mui/material';
-
 import { filterPossibleFriendSlice } from '../../../../redux/slices/FiltersSlice/FiltersSlice.ts';
 import { selectPossibleFriends } from '../../../../redux/slices/FriendSlice/selectors.ts';
 import { selectFiltersPossibleFriends } from '../../../../redux/slices/FiltersSlice/selectors.ts';
 
 const Friends: React.FC = () => {
+   const debounce = (func, delay) => {
+	
+      let timeoutId
+	
+      return function (...args) {
+         if (timeoutId) {
+            clearTimeout(timeoutId);
+         }
+         timeoutId = setTimeout(() => {
+            func(...args);
+         }, delay);
+      };
+   };
+
    const dispatch = useAppDispatch();
 
    const [value, setValue] = React.useState<string>('');
 
-   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newInputValue = event.target.value;
       setValue(newInputValue);
-      dispatch(filterPossibleFriendSlice(newInputValue));
+      handleSearch(newInputValue);
    };
+
+   const handleSearch = debounce((searchValue) => {
+      dispatch(filterPossibleFriendSlice(searchValue));
+   }, 500);
 
    const { possibleFriends, loading, error } = useSelector(selectPossibleFriends);
 
@@ -40,11 +57,11 @@ const Friends: React.FC = () => {
                type="text"
                placeholder="Поиск друзей"
                value={value}
-               onChange={inputChange}
+               onChange={handleChange}
             ></TextField>
-            <Button></Button>
-            <Button></Button>
-            <Button></Button>
+            <Button>123</Button>
+            <Button>123</Button>
+            <Button>123</Button>
          </h1>
          <div>
             {possibleFriends ? (
