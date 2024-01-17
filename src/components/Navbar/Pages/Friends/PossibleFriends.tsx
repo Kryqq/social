@@ -1,20 +1,20 @@
+import styles from './PossibleFriends.module.scss';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import styles from './PossibleFriends.module.scss';
 import { Friend } from './Friend/PossibleFriend.tsx';
 import { fetchPossibleFriends } from '../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 import { useAppDispatch } from '../../../../redux/store/store.tsx';
 import { resultsFriend } from '../../../../redux/slices/FriendSlice/types.ts';
-import { Button, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { filterPossibleFriendSlice } from '../../../../redux/slices/FiltersSlice/FiltersSlice.ts';
 import { selectPossibleFriends } from '../../../../redux/slices/FriendSlice/selectors.ts';
+
+import SortPopUp from '../../../Sort/SortPopUp.tsx';
 import { selectFiltersPossibleFriends } from '../../../../redux/slices/FiltersSlice/selectors.ts';
 
 const Friends: React.FC = () => {
    const debounce = (func, delay) => {
-	
-      let timeoutId
-	
+      let timeoutId;
       return function (...args) {
          if (timeoutId) {
             clearTimeout(timeoutId);
@@ -59,10 +59,9 @@ const Friends: React.FC = () => {
                value={value}
                onChange={handleChange}
             ></TextField>
-            <Button>123</Button>
-            <Button>123</Button>
-            <Button>123</Button>
          </h1>
+
+         <SortPopUp></SortPopUp>
          <div>
             {possibleFriends ? (
                <div className={styles.friends__wrapper}>

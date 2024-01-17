@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../../../../redux/store/store.tsx';
 import { deleteFriendSlice } from '../../../../../redux/slices/FriendSlice/FrinendsSlice.ts';
 import { Link } from 'react-router-dom';
 import { addFriend } from '../../../../../redux/slices/MyProfileSlice/MyProfileSlice.ts';
-import { Button, colors, useTheme } from '@mui/material';
+import { Button, Paper, colors, useTheme } from '@mui/material';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
@@ -21,7 +21,7 @@ export const Friend: React.FC = ({ id, name, gender, image, location, species })
    };
 
    return (
-      <div className={styles.friend__container}>
+      <Paper variant="outlined" className={styles.friend__container}>
          <div className={styles.friend__wrapper}>
             <div className={styles.image__wrapper}>
                <Link to={`/possiblefriends/possiblefriend/${id}`}>
@@ -70,6 +70,6 @@ export const Friend: React.FC = ({ id, name, gender, image, location, species })
                <span className={styles.span__species}> Species: {species} </span>
             </div>
          </div>
-      </div>
+      </Paper>
    );
 };

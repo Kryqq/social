@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 const FriendProfile = () => {
    const { id } = useParams();
-   
+
    const [friends, setFriends] = React.useState();
 
    React.useEffect(() => {
@@ -14,7 +14,7 @@ const FriendProfile = () => {
             let data = await response.json();
             setFriends(data);
          } catch (error) {
-            alert('????');
+            alert(console.error(error));
          }
       }
 

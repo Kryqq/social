@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { searchType } from './types';
+import { Filters, Sort, sortPropertyEnum } from './types.ts';
 
-const initialState: searchType = {
+const initialState: Filters = {
    searchValue: '',
+   sortValue: { name: '', sortProperty: sortPropertyEnum.all },
 };
 
 const filtersSlice = createSlice({
@@ -12,12 +13,12 @@ const filtersSlice = createSlice({
       filterPossibleFriendSlice(state, action: PayloadAction<string>) {
          state.searchValue = action.payload;
       },
-	 sortPossibleFriendSlice(state, action: PayloadAction<string>) {
-		 
-	 }
+      setSortPossibleFriendSlice(state, action: PayloadAction<Sort>) {
+		state.sortValue = action.payload;
+	 },
    },
 });
 
-export const {filterPossibleFriendSlice} = filtersSlice.actions;
+export const { filterPossibleFriendSlice, setSortPossibleFriendSlice } = filtersSlice.actions;
 
 export default filtersSlice.reducer;

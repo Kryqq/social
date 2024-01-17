@@ -16,7 +16,7 @@ const MyProfileFriendsList = () => {
 
          <div>
             <div className={styles.myProfileFriendsShowed}>
-               {myProfileFriendsShowed.map((friend) => (
+               {myProfileFriendsShowed.slice(0,3).map((friend) => (
                   <Link to={`/possiblefriends/possiblefriend/${friend.id}`}>
                      <MyProfileFriend key={friend.id} {...friend} />
                   </Link>
