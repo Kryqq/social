@@ -8,13 +8,17 @@ import { resultsFriend } from '../../../../redux/slices/FriendSlice/types.ts';
 import { TextField } from '@mui/material';
 import { filterPossibleFriendSlice } from '../../../../redux/slices/FiltersSlice/FiltersSlice.ts';
 import { selectPossibleFriends } from '../../../../redux/slices/FriendSlice/selectors.ts';
-
 import SortPopUp from '../../../Sort/SortPopUp.tsx';
 import { selectFiltersPossibleFriends } from '../../../../redux/slices/FiltersSlice/selectors.ts';
+import { UseSelector } from 'react-redux/es/hooks/useSelector';
+import { SortPossibleFriendSliceSelector } from '../../../../redux/slices/FiltersSlice/selectors.ts';
 
 const Friends: React.FC = () => {
-   const debounce = (func, delay) => {
-      let timeoutId;
+   const debounce = <T extends (...args: any[]) => void>(
+      func: T,
+      delay: number = 500
+   ): ((...args: Parameters<T>) => void) => {
+      let timeoutId: NodeJS.Timeout;
       return function (...args) {
          if (timeoutId) {
             clearTimeout(timeoutId);
@@ -28,19 +32,19 @@ const Friends: React.FC = () => {
    const dispatch = useAppDispatch();
 
    const [value, setValue] = React.useState<string>('');
-
+   const [sortName, setSortName] = React.useState<string>('');
    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newInputValue = event.target.value;
       setValue(newInputValue);
       handleSearch(newInputValue);
    };
 
-   const handleSearch = debounce((searchValue) => {
+   const handleSearch = debounce((searchValue: string) => {
       dispatch(filterPossibleFriendSlice(searchValue));
    }, 500);
 
-   const { possibleFriends, loading, error } = useSelector(selectPossibleFriends);
-
+   const { possibleFriends,  error } = useSelector(selectPossibleFriends);
+   const { sortValue } = useSelector(SortPossibleFriendSliceSelector);
    const { searchValue } = useSelector(selectFiltersPossibleFriends);
 
    React.useEffect(() => {

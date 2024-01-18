@@ -5,7 +5,7 @@ export const fetchPossibleFriends = createAsyncThunk<FriendsSliceState, undefine
    'friends/fetchFriends',
    async function () {
       try {
-         const response = await fetch(`https://rickandmortyapi.com/api/character`);
+         const response = await fetch(`https://rickandmortyapi.com/api/character/`);
 
          const data = await response.json();
 
