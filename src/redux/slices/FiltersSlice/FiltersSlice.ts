@@ -3,7 +3,7 @@ import { Filters, Sort, sortPropertyEnum } from './types.ts';
 
 const initialState: Filters = {
    searchValue: '',
-   sortValue: { name: '', sortProperty: sortPropertyEnum.all },
+   sortValue: { name: 'All', sortProperty: sortPropertyEnum.all },
 };
 
 const filtersSlice = createSlice({
@@ -15,6 +15,7 @@ const filtersSlice = createSlice({
       },
       setSortPossibleFriendSlice(state, action: PayloadAction<Sort>) {
 		state.sortValue = action.payload;
+		
 	 },
    },
 });

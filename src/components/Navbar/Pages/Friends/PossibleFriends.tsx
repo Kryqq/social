@@ -43,13 +43,22 @@ const Friends: React.FC = () => {
       dispatch(filterPossibleFriendSlice(searchValue));
    }, 500);
 
-   const { possibleFriends,  error } = useSelector(selectPossibleFriends);
+   const { possibleFriends, error } = useSelector(selectPossibleFriends);
    const { sortValue } = useSelector(SortPossibleFriendSliceSelector);
    const { searchValue } = useSelector(selectFiltersPossibleFriends);
 
    React.useEffect(() => {
       dispatch(fetchPossibleFriends());
    }, [fetchPossibleFriends]);
+
+   const sorted = possibleFriends.filter((friend) => {
+      const genderCompare = friend?.gender === sortValue.name;
+      const speciesCompare = friend?.species === sortValue.name;
+
+      return genderCompare || speciesCompare  ;
+   });
+
+   console.log('sorted', sorted);
 
    return (
       <main>
@@ -67,9 +76,9 @@ const Friends: React.FC = () => {
 
          <SortPopUp></SortPopUp>
          <div>
-            {possibleFriends ? (
+            {sorted ? (
                <div className={styles.friends__wrapper}>
-                  {possibleFriends
+                  {sorted
                      .filter((friend) => friend.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
                      .map((friend: resultsFriend) => (
                         <Friend key={friend.id} {...friend} />
