@@ -32,7 +32,6 @@ const Friends: React.FC = () => {
    const dispatch = useAppDispatch();
 
    const [value, setValue] = React.useState<string>('');
-   const [sortName, setSortName] = React.useState<string>('');
    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newInputValue = event.target.value;
       setValue(newInputValue);
@@ -54,8 +53,8 @@ const Friends: React.FC = () => {
    const sorted = possibleFriends.filter((friend) => {
       const genderCompare = friend?.gender === sortValue.name;
       const speciesCompare = friend?.species === sortValue.name;
-
-      return genderCompare || speciesCompare  ;
+      const allFriendList = friend;
+      return genderCompare || speciesCompare || allFriendList;
    });
 
    console.log('sorted', sorted);
