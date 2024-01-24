@@ -10,7 +10,7 @@ import { filterPossibleFriendSlice } from '../../../../redux/slices/FiltersSlice
 import { selectPossibleFriends } from '../../../../redux/slices/FriendSlice/selectors.ts';
 import SortPopUp from '../../../Sort/SortPopUp.tsx';
 import { selectFiltersPossibleFriends } from '../../../../redux/slices/FiltersSlice/selectors.ts';
-import { UseSelector } from 'react-redux/es/hooks/useSelector';
+
 import { SortPossibleFriendSliceSelector } from '../../../../redux/slices/FiltersSlice/selectors.ts';
 
 const Friends: React.FC = () => {
@@ -57,7 +57,7 @@ const Friends: React.FC = () => {
       return genderCompare || speciesCompare || allFriendList;
    });
 
-   console.log('sorted', sorted);
+
 
    return (
       <main>

@@ -7,8 +7,22 @@ import { addFriend } from '../../../../../redux/slices/MyProfileSlice/MyProfileS
 import { Button, Paper, colors, useTheme } from '@mui/material';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { resultsFriend } from '../../../../../redux/slices/FriendSlice/types.ts';
 
-export const Friend: React.FC = ({ id, name, gender, image, location, species }) => {
+export const Friend: React.FC<resultsFriend> = ({
+   id,
+   name,
+   gender,
+   image,
+   location,
+   species,
+   status,
+   type,
+   origin,
+   episode,
+   url,
+   created,
+}) => {
    const theme = useTheme();
    const dispatch = useAppDispatch();
    const deleteFriend = () => {
@@ -16,7 +30,7 @@ export const Friend: React.FC = ({ id, name, gender, image, location, species })
    };
 
    const handleAddFriend = () => {
-      dispatch(addFriend({ id, name, gender, image, location, species }));
+      dispatch(addFriend({ id, name, gender, image, location, species, status, type, origin, episode, url, created }));
       dispatch(deleteFriendSlice(id));
    };
 

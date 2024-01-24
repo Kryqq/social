@@ -1,5 +1,7 @@
+import { resultsFriend, resultsFriends } from './../FriendSlice/types';
+import { myProfileStateFriends } from './selectors';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { resultsFriends } from '../FriendSlice/types';
+
 
 export interface IPost {
    message: string;
@@ -38,7 +40,7 @@ const myProfileSlice = createSlice({
       addPost(state, action: PayloadAction<IPost>) {
          state.posts.push(action.payload);
       },
-      addFriend(state, action: PayloadAction<MyProfileState>) {
+	addFriend(state, action: PayloadAction<resultsFriend>) {
          const existingFriend = state.friends.find((friend) => friend.id === action.payload.id);
 	   
          if (!existingFriend) {

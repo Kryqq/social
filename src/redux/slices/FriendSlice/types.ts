@@ -31,7 +31,7 @@ export type resultsFriend = {
    type: string;
    gender: string;
    origin: origin;
-   locatin: locationFriends;
+   location: locationFriends;
    image: imageFriends;
    episode: episodeFriends;
    url: string;
@@ -46,7 +46,7 @@ export type resultsFriends = {
    type: string;
    gender: string;
    origin: origin;
-   locatin: locationFriends;
+   location: locationFriends;
    image: imageFriends;
    episode: episodeFriends;
    url: string;
