@@ -10,28 +10,14 @@ import { filterPossibleFriendSlice } from '../../../../redux/slices/FiltersSlice
 import { selectPossibleFriends } from '../../../../redux/slices/FriendSlice/selectors.ts';
 import SortPopUp from '../../../Sort/SortPopUp.tsx';
 import { selectFiltersPossibleFriends } from '../../../../redux/slices/FiltersSlice/selectors.ts';
-
+import { debounce } from '../../../../hooks/debounce/debounce.ts';
 import { SortPossibleFriendSliceSelector } from '../../../../redux/slices/FiltersSlice/selectors.ts';
 
 const Friends: React.FC = () => {
-   const debounce = <T extends (...args: any[]) => void>(
-      func: T,
-      delay: number = 500
-   ): ((...args: Parameters<T>) => void) => {
-      let timeoutId: NodeJS.Timeout;
-      return function (...args) {
-         if (timeoutId) {
-            clearTimeout(timeoutId);
-         }
-         timeoutId = setTimeout(() => {
-            func(...args);
-         }, delay);
-      };
-   };
-
    const dispatch = useAppDispatch();
 
    const [value, setValue] = React.useState<string>('');
+
    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newInputValue = event.target.value;
       setValue(newInputValue);
@@ -44,6 +30,7 @@ const Friends: React.FC = () => {
 
    const { possibleFriends, error } = useSelector(selectPossibleFriends);
    const { sortValue } = useSelector(SortPossibleFriendSliceSelector);
+
    const { searchValue } = useSelector(selectFiltersPossibleFriends);
 
    React.useEffect(() => {
@@ -53,11 +40,13 @@ const Friends: React.FC = () => {
    const sorted = possibleFriends.filter((friend) => {
       const genderCompare = friend?.gender === sortValue.name;
       const speciesCompare = friend?.species === sortValue.name;
-      const allFriendList = friend;
-      return genderCompare || speciesCompare || allFriendList;
+
+      if (genderCompare || speciesCompare) {
+         return genderCompare || speciesCompare;
+      }
    });
 
-
+   const friendsArray = sorted.length > 1 ? sorted : possibleFriends;
 
    return (
       <main>
@@ -75,9 +64,9 @@ const Friends: React.FC = () => {
 
          <SortPopUp></SortPopUp>
          <div>
-            {sorted ? (
+            {friendsArray ? (
                <div className={styles.friends__wrapper}>
-                  {sorted
+                  {friendsArray
                      .filter((friend) => friend.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
                      .map((friend: resultsFriend) => (
                         <Friend key={friend.id} {...friend} />

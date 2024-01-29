@@ -14,9 +14,8 @@ const filtersSlice = createSlice({
          state.searchValue = action.payload;
       },
       setSortPossibleFriendSlice(state, action: PayloadAction<Sort>) {
-		state.sortValue = action.payload;
-		
-	 },
+         state.sortValue = action.payload;
+      },
    },
 });
 
