@@ -11,16 +11,12 @@ import LoginMenu from './components/Popup/LoginMenu.tsx';
 import AddedFriends from './components/Navbar/MyFriends/AddedFriends.tsx';
 import { ColorModeContext, useMode } from './hooks/uiHooks/themes.ts';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-
+import { useSelector } from 'react-redux';
+import { IRootState } from './redux/store/store.tsx';
 
 const App: React.FC = () => {
-
-
-
-
    const [theme, colorMode] = useMode();
-   const isLoggedIn = true; //useSelector((state: IRootState) => !!state.authSlice.authData.accessToken);
-
+   const isLoggedIn = true //useSelector((state: IRootState) => !!state.authSlice.authData.accessToken);
 
    return (
       <ColorModeContext.Provider value={colorMode}>
@@ -29,6 +25,7 @@ const App: React.FC = () => {
                {isLoggedIn ? (
                   <div className="app-wrapper">
                      <Header />
+                     <Navbar />
                      <Navbar />
 
                      <div className="app-wrapper-content">
